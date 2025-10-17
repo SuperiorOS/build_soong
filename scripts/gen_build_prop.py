@@ -128,7 +128,7 @@ def parse_args():
     config["BuildThumbprint"] = args.build_thumbprint_file.read().strip()
 
   config["LineageDesc"] = config["BuildDesc"]
-  config["LineageDevice"] = config["DeviceName"]
+  config["SuperiorDevice"] = config["DeviceName"]
 
   if config["BuildNumber"].startswith("eng."):
     config["BuildNumber"] = config["DateUtc"]
@@ -249,7 +249,7 @@ def generate_build_info(args):
   # flavor (via a dedicated lunch config for example).
   print(f"ro.build.flavor={config['BuildFlavor']}")
 
-  print(f"ro.lineage.device={config['LineageDevice']}")
+  print(f"ro.superior.device={config['SuperiorDevice']}")
 
   # These values are deprecated, use "ro.product.cpu.abilist"
   # instead (see below).
